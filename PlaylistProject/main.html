@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NeonTunes 🎵 Playlist</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Toggle button fixed on screen -->
+<button id="toggleBtn" onclick="toggleSidePanel()">&#9776;</button>
+
+<aside id="sidePanel" class="collapsed">
+  <h2>NeonTunes</h2>
+  <button onclick="showView()">View Playlist</button>
+  <button onclick="showAdd()">Add Songs</button>
+  <button onclick="showSearch()">Search</button>
+  <button onclick="clearPlaylist()" style="color:#ff6666;">Clear Playlist</button> <!-- New button -->
+</aside>
+
+<main id="content">
+  <!-- Playlist view -->
+  <div id="playlist-view">
+  <h1>My Playlist</h1>
+
+  <!-- Move filter bar here, above the playlist -->
+  <div class="filter-bar" id="filterBar" style="display:flex;">
+    <select id="genreFilter" onchange="filterPlaylist()">
+      <option value="all">All Genres</option>
+      <option value="Pop">Pop</option>
+      <option value="Indie">Indie</option>
+      <option value="Rock">Rock</option>
+    </select>
+  </div>
+
+  <div id="empty-msg">
+    No songs yet? Let’s add some bangers!
+    <button class="absolute-btn" onclick="showAdd()">GO!</button>
+  </div>
+
+  <div id="playlist"></div>
+</div>
+
+
+  <!-- Add songs view -->
+  <div id="add-view" style="display:none;">
+    <h1>Add Songs</h1>
+    <div id="song-library"></div>
+  </div>
+
+  <!-- Search view -->
+  <div id="search-view" style="display:none;">
+    <h1>Search Songs</h1>
+    <input type="text" id="search-bar" placeholder="Type song name..." oninput="searchSong()">
+    <div id="search-result"></div>
+  </div>
+</main>
+
+<script src="common.js"></script>
+<script>
+window.onload = function() {
+  toggleView('playlist-view');
+  loadPlaylist();
+};
+</script>
+</body>
+</html>
