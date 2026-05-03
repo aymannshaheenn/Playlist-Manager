@@ -13,7 +13,6 @@ Playlist Manager is a web-based music management project built as part of a Data
 - Search songs by title
 - Sort playlist by title or artist
 - Filter songs by genre
-- Play songs using встро HTML audio player
 - Dynamic updates using AJAX (no page reload)
 - Clear entire playlist
 
